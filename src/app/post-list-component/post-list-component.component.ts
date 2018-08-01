@@ -32,7 +32,7 @@ export class PostListComponentComponent implements OnInit {
   }
   
   ondloveIt() {
-    this.postLoveIts--;
+    this.postLoveIts--; 
   }
 
 }
