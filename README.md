@@ -4,10 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Installation
 
-Select the folder expected
-Run 'npm install'
-Run 'npm install bootstrap@3.3.7 --save'
-Clone repository 'git clone https://github.com/FanGISGit/react_blog.git'
+* Select the folder expected
+* Run 'npm install'
+* Run 'npm install bootstrap@3.3.7 --save'
+* Clone repository 'git clone https://github.com/FanGISGit/react_blog.git'
 
 ## Development server
 
