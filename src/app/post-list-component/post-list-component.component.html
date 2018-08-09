@@ -1,23 +1,45 @@
-<li [ngClass]="{'list-group-item': true,
-                'list-group-item-success': postLoveIts > 0,
-                'list-group-item-danger': postLoveIts < 0}">
-		<div style="float:left">
-		<h4 [ngStyle]="{color: getColor()}" style="display: inline">{{ postTitle }}</h4>
-		</div>
-		<div style="float:right">
-			<h6 style="display:inline">{{ postDate | date : "dd/MM/yyyy 'à' h:mma" }}</h6>
-		</div>
-		<div style="clear:both">
-			<p [ngStyle]="{color: getColor()}">{{ postContent }}</p>
-		</div>
-		<div>
-		<button class="btn btn-success"  
-			(click)="onloveIt()">Love it!
-		</button>
-		&nbsp;
-		<button class="btn btn-danger" 
-			(click)="ondloveIt()">Don't love it!
-		</button>
-		<!--p>{{ postLoveIts }}</p-->
-		</div>
-</li>
+<div class="row">
+  <div class="col-xs-12">
+    <h2>Posts</h2>
+    <div class="list-group">
+        <ul class="list-group"
+        *ngFor="let post of posts; let i = index">
+            <li [ngClass]="{'list-group-item': true,  
+                'list-group-item-success': getloveIts (post) > 0,
+                'list-group-item-danger': getloveIts (post) < 0}">
+		      <div style="float:left">
+		          <h4 [ngStyle]="{color: getColor(post)}" style="display: inline">{{ post.title }}</h4>
+		      </div>
+            &nbsp;&nbsp;
+              <div style="float:right">
+                 <h6 style="display:inline">{{ post.createdat }}</h6>
+              </div>
+		      <div style="clear:both">
+			     <p [ngStyle]="{color: getColor(post)}">{{ post.content }}</p>
+		      </div>
+		      <div>
+                <div style="float:left" class="btn-group btn-group-xs" role="group">
+		              <button class="btn btn-success"  
+			             (click)="onloveIt(post)">Love it!
+		              </button>
+		              <button class="btn btn-danger" 
+			             (click)="ondloveIt(post)">Don't love it!
+		              </button>
+                  </div>                      
+                  &nbsp;&nbsp;
+                  <div style="float:right">
+                    <button style="color:darkred" class="btn-xs btn-default pull-right" (click)="onDeletePost(post)">X
+                    <!--span class="glyphicon glyphicon-minus"></span-->
+                    </button>
+                  </div>
+		          <!--p>{{ post.loveIts }}</p-->
+		      </div>
+            </li>
+        </ul>
+    </div>
+    <br/>  
+    <button class="btn btn-primary" (click)="onNewPost()">Ajouter Post</button>
+  </div>
+</div>
+
+
